@@ -1,0 +1,31 @@
+# BUild results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+
+#Visual Sudio userspecif iles
+*.user
+*.suo
+*.userosscache
+*.sln.docstate
+*.dll
+*.exe
+*.pdb
+
+#auto-generat
+*.g.cs
+*.g.i.cs
+
+#Nuget
+*.nupkg
+packages/
+
+#Cache
+*.back
+*.tmp
+*.Cache*.log
+# Entity Framework Migrations metadata Migrations/
+Migrations/
