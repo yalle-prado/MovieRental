@@ -9,7 +9,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>();
 
-builder.Services.AddSingleton<IRentalFeatures, RentalFeatures>();
+//builder.Services.AddSingleton<IRentalFeatures, RentalFeatures>();
+///
+///  AddSingleton  doesnt allow DbContext , also sit garantee  one instance per request, 
+/// 
+builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
 
 var app = builder.Build();
 
