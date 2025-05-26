@@ -1,0 +1,40 @@
+# BUild results
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Ll]ogs/
+
+
+#Visual Sudio userspecif iles
+*.user
+*.suo
+*.userosscache
+*.sln.docstate
+*.dll
+*.exe
+*.pdb
+
+#auto-generat
+*.g.cs
+*.g.i.cs
+
+#Nuget
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+
+#Cache
+*.back
+*.tmp
+*.Cache
+*.log
+*.vsidx
+.vs/
+
+
+
+#VS Code folders
+.vscode/

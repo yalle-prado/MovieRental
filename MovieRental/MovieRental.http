@@ -1,0 +1,17 @@
+@MovieRental_HostAddress = http://localhost:5219
+
+GET {{MovieRental_HostAddress}}/rental/rentals/
+Accept: application/json
+
+###
+
+/// Add a post example 
+
+POST {{MovieRental_HostAddress}}/rental/rentals/
+Content-Type: application/json
+{
+  "customerId": 1,
+  "movieId": 1,
+  "rentalDate": "2025-05-20T00:15:45",
+  "returnDate": "2025-05-23T00:19:14"
+}
