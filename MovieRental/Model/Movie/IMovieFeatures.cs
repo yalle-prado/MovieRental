@@ -4,4 +4,5 @@ public interface IMovieFeatures
 {
 	Movie Save(Movie movie);
 	List<Movie> GetAll();
+	List<Movie> GetMovieByTitle(String title);
 }

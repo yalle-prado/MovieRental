@@ -15,6 +15,8 @@ builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>()
 ///  AddSingleton  doesnt allow DbContext , also sit garantee  one instance per request, 
 /// 
 builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
+builder.Services.AddScoped<ICustomerFeatures, CustomerFeatures>();
+builder.Services.AddScoped<IMovieFeatures, MovieFeatures>();
 
 var app = builder.Build();
 

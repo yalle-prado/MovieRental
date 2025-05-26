@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MovieRental.Data;
+using MovieRental.Data; 
 
 namespace MovieRental.Rental
 {
@@ -25,9 +25,15 @@ namespace MovieRental.Rental
 		}
 
 		//TODO: finish this method and create an endpoint for it
+
+		/// <summary>
+		/// Here the Method will search into Database the rental by Customer Name.
+		/// </summary>
+		/// <param name="customerName"></param>
+		/// <returns></returns>
 		public IEnumerable<Rental> GetRentalsByCustomerName(string customerName)
 		{
-			return Enumerable.Empty<Rental>();
+			return _movieRentalDb.Rentals.Where(r => r.CustomerName == customerName);
 		}
 
 	}

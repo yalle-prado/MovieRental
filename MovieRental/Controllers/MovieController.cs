@@ -16,15 +16,28 @@ namespace MovieRental.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAllMovies()
         {
-	        return Ok(_features.GetAll());
+            return Ok(_features.GetAll());
+        }
+
+        //GET: api/Movie/title/Godfather
+        [HttpGet("title/{title}")]
+        public IActionResult GetMovieByTitle(string title)
+        {
+            var movies= _features.GetMovieByTitle(title);
+            if (movies == null)
+            {
+                return NotFound();
+            }
+
+	        return Ok(movies);
         }
 
         [HttpPost]
         public IActionResult Post([FromBody] Movie.Movie movie)
         {
-	        return Ok(_features.Save(movie));
+            return Ok(_features.Save(movie));
         }
     }
 }

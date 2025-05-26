@@ -8,7 +8,11 @@ namespace MovieRental.Data
 	{
 		public DbSet<Movie.Movie> Movies { get; set; }
 		public DbSet<Rental.Rental> Rentals { get; set; }
-		public DbSet<Customer.Customer> Customer { get; set; }
+
+		/// <summary>
+		/// Add Customer Table to be able to find Customer 
+		/// </summary>
+		public DbSet<Customer.Customer> Customers { get; set; }  = null!;
 
 		private string DbPath { get; }
 

@@ -19,7 +19,7 @@ namespace MovieRental.Controllers
         [HttpGet]
         public IActionResult GetAllCustomers()
         {
-	        return Ok(_features.GetAllCustomers());
+	        return Ok(_features.GetAll());
         }
 
         // GET: api/Customer/id/5
@@ -41,6 +41,11 @@ namespace MovieRental.Controllers
         public IActionResult GetCustomerByName(string name)
         {
             var customers= _features.GetCustomerByName(name);
+            if (customers == null)
+            {
+                return NotFound();
+            }
+
 	        return Ok(customers);
         }
 
@@ -50,10 +55,9 @@ namespace MovieRental.Controllers
         /// <param name="customer"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult SaveCustomer([FromBody] Customer.Customer customer)
+        public IActionResult Post([FromBody] Customer.Customer customer)
         {
-            var savedCustomer = _features.SaveCustomer(customer);
-            return Ok(_features.SaveCustomer(customer));
+            return Ok(_features.Save(customer));
         }
     }
 }

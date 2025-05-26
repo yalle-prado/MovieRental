@@ -27,5 +27,3 @@ packages/
 *.back
 *.tmp
 *.Cache*.log
-# Entity Framework Migrations metadata Migrations/
-Migrations/

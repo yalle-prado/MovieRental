@@ -3,10 +3,10 @@
 
     public interface ICustomerFeatures
     {
-        List<Customer> GetAllCustomers();
-        Customer GetCustomerById(int id);
-        List<Customer> GetCustomerByName(string name);
-        Customer SaveCustomer(Customer customer);
+        List<Customer>? GetAll();
+        Customer? GetCustomerById(int id);
+        Customer? GetCustomerByName(string name);
+        Customer Save(Customer customer);
 
     }
 

@@ -1,4 +1,5 @@
-﻿using MovieRental.Data;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using MovieRental.Data;
 
 namespace MovieRental.Movie
 {
@@ -9,7 +10,7 @@ namespace MovieRental.Movie
 		{
 			_movieRentalDb = movieRentalDb;
 		}
-		
+
 		public Movie Save(Movie movie)
 		{
 			_movieRentalDb.Movies.Add(movie);
@@ -30,6 +31,9 @@ namespace MovieRental.Movie
 			return _movieRentalDb.Movies.AsQueryable().ToList();
 		}
 
-
+		public List<Movie> GetMovieByTitle(string title)
+		{
+			   return _movieRentalDb.Movies.Where(x => x.Title == title).ToList();
+		}
 	}
 }
