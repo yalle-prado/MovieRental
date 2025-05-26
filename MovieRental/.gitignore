@@ -22,8 +22,15 @@ obj/
 #Nuget
 *.nupkg
 packages/
+project.lock.json
+project.fragment.lock.json
+
+
 
 #Cache
 *.back
 *.tmp
 *.Cache*.log
+
+#VS Code folders
+.vscode/

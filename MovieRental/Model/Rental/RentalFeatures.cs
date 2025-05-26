@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MovieRental.Data; 
+using MovieRental.Data;
+using MovieRental.PaymentProviders;
 
 namespace MovieRental.Rental
 {
@@ -17,8 +18,9 @@ namespace MovieRental.Rental
 		/// </summary>
 		/// <param name="rental"></param>
 		/// <returns></returns>
-		public async Task<Rental> Save(Rental rental)
+		public async Task<Rental> SavRental(Rental rental)
 		{
+			
 			_movieRentalDb.Rentals.Add(rental);
 			await _movieRentalDb.SaveChangesAsync();
 			return rental;
@@ -31,10 +33,22 @@ namespace MovieRental.Rental
 		/// </summary>
 		/// <param name="customerName"></param>
 		/// <returns></returns>
-		public IEnumerable<Rental> GetRentalsByCustomerName(string customerName)
+		public List<Rental> GetRentalsByCustomerName(string customerName)
 		{
-			return _movieRentalDb.Rentals.Where(r => r.CustomerName == customerName);
+			return _movieRentalDb.Rentals.Where(rental => rental.CustomerName == customerName).ToList();
 		}
 
+		public bool SavePayment(double price, string CustomerName, string PaymentMethod)
+		{
+
+			if (price > 0)
+			{
+				if (PaymentMethod = "MBWay")
+				{
+					Rent
+				}
+			}
+		}
 	}
 }
+	bool SavePayment(int Price, string CustomerName, string PaymentMethod);

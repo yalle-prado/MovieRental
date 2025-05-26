@@ -17,6 +17,7 @@ builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>()
 builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
 builder.Services.AddScoped<ICustomerFeatures, CustomerFeatures>();
 builder.Services.AddScoped<IMovieFeatures, MovieFeatures>();
+builder.Services.AddScoped<IPaymentFeatures, PaymentFeatures>();
 
 var app = builder.Build();
 
