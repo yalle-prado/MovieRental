@@ -1,6 +1,9 @@
 using MovieRental.Data;
 using MovieRental.Movie;
+using MovieRental.Customer;
 using MovieRental.Rental;
+using MovieRental.Payment;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +12,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkSqlite().AddDbContext<MovieRentalDbContext>();
 
-builder.Services.AddSingleton<IRentalFeatures, RentalFeatures>();
+//builder.Services.AddSingleton<IRentalFeatures, RentalFeatures>();
+///
+///  AddSingleton  doesnt allow DbContext , also sit garantee  one instance per request, 
+/// 
+builder.Services.AddScoped<IRentalFeatures, RentalFeatures>();
+builder.Services.AddScoped<ICustomerFeatures, CustomerFeatures>();
+builder.Services.AddScoped<IMovieFeatures, MovieFeatures>();
+builder.Services.AddScoped<IPaymentFeatures, PaymentFeatures>();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    var xmlSwaggerfile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlSwaggerfile ));
+
+});
 
 var app = builder.Build();
 

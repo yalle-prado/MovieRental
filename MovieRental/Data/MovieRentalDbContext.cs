@@ -9,6 +9,13 @@ namespace MovieRental.Data
 		public DbSet<Movie.Movie> Movies { get; set; }
 		public DbSet<Rental.Rental> Rentals { get; set; }
 
+		/// <summary>
+		/// Add Customer Table to be able to find Customer 
+		/// </summary>
+		public DbSet<Customer.Customer> Customers { get; set; }  = null!;
+
+		public DbSet<Payment.Payment> Payments { get; set; }
+
 		private string DbPath { get; }
 
 		public MovieRentalDbContext()
